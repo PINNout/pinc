@@ -10,7 +10,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044";
   };
 
-  outputs = { nixpkgs, ... }:
+  outputs = { self, nixpkgs, ... }:
 
     #---------------------------------------------------------------------------
     # Define parameters
@@ -94,6 +94,23 @@ export LLVM_EXTERNAL_LIT="${pkgs.python3Packages.lit}/bin/lit"
   '';
       };
 
+      
+      pinc-opt = pkgs.stdenv.mkDerivation{
+        pname = "pinc-opt";
+        version = "0.0.1";
+
+        src = self;
+        nativeBuildInputs = with pkgs; [ cmake ninja python3 stablehloMlir];
+        cmakeFlags = [ "-DMLIR_DIR=${stablehloMlir}/lib/cmake/mlir"
+                       "-DLLVM_EXTERNAL_LIT=${pkgs.python3Packages.lit}/bin/lit"
+                     ];
+        installPhase = ''
+    runHook preInstall
+    install -Dm755 bin/pinc-opt       $out/bin/pinc-opt
+    runHook postInstall
+  '';
+      };
+
       #---------------------------------------------------------------------------
       # Declare devShells
       #---------------------------------------------------------------------------
@@ -107,6 +124,7 @@ export LLVM_EXTERNAL_LIT="${pkgs.python3Packages.lit}/bin/lit"
       packages.${system}= {
         stablehlo-mlir = stablehloMlir;
         stablehlo = stablehlo;
+        pinc-opt = pinc-opt;
       };
     };
 }
