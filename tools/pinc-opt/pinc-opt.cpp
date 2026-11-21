@@ -4,6 +4,7 @@
 #include "mlir/InitAllExtensions.h"
 #include "mlir/Support/FileUtilities.h"
 #include "mlir/Tools/mlir-opt/MlirOptMain.h"
+#include "pinc/pincPasses.h"
 
 // these do not exist yet:
 // #include "pinc/pincDialect.h"
@@ -11,7 +12,7 @@
 
 int main(int argc, char **argv) {
   mlir::registerAllPasses();
-  // mlir::pinc::registerPasses();
+  mlir::pinc::registerPasses();
 
   mlir::DialectRegistry registry;
   mlir::registerAllDialects(registry);

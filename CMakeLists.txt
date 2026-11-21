@@ -54,6 +54,7 @@ include_directories(${PINC_SOURCE_DIR}/include)
 include_directories(${PINC_BINARY_DIR}/include)
 link_directories(${LLVM_BUILD_LIBRARY_DIR})
 
+add_subdirectory(include)
+add_subdirectory(lib)
 add_subdirectory(tools)
-
 add_subdirectory(test)
