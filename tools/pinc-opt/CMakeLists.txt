@@ -3,7 +3,8 @@ set(LIBS
   MLIRRegisterAllDialects
   MLIRRegisterAllPasses
   MLIRRegisterAllExtensions
-  MLIRpinc
+  MLIRpincConversion
+  MLIRpincTransforms
 )
 add_llvm_executable(pinc-opt pinc-opt.cpp)
 

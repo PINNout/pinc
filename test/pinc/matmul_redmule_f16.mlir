@@ -1,4 +1,4 @@
-// RUN: pinc-opt --redmule %s | FileCheck --implicit-check-not=linalg.matmul %s
+// RUN: pinc-opt --pinc-redmule %s | FileCheck --implicit-check-not=linalg.matmul %s
 
 // CHECK: stddef.h
 // CHECK: stdint.h

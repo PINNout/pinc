@@ -1,4 +1,4 @@
-add_mlir_library(MLIRpinc
+add_mlir_library(MLIRpincTransforms
   pincRedMulE.cpp
 
   ADDITIONAL_HEADER_DIRS
