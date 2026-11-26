@@ -6,10 +6,6 @@
 #include "mlir/Tools/mlir-opt/MlirOptMain.h"
 #include "pinc/pincPasses.h"
 
-// these do not exist yet:
-// #include "pinc/pincDialect.h"
-// #include "pinc/pincPasses.h"
-
 int main(int argc, char **argv) {
   mlir::registerAllPasses();
   mlir::pinc::registerPasses();

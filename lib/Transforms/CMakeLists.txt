@@ -1,5 +1,6 @@
 add_mlir_library(MLIRpincTransforms
   pincRedMulE.cpp
+  pincMathApprox.cpp
 
   ADDITIONAL_HEADER_DIRS
   ${PROJECT_SOURCE_DIR}/include/pinc
@@ -14,4 +15,5 @@ add_mlir_library(MLIRpincTransforms
   MLIRArithDialect
   MLIRMemRefDialect
   MLIREmitCDialect
+  MLIRMathDialect
   )

@@ -27,4 +27,16 @@ def PincMemRefToEmitC: Pass<"pinc-memref-to-emitc", "::mlir::ModuleOp"> {
   ];
 }
 
+def PincMathApprox: Pass<"pinc-math-approx", "::mlir::ModuleOp"> {
+  let summary = "Appoximates some math functions";
+  let description = [{
+    Converts some math functions (at present, only tanh and sin) to numerical approximations      
+  }];
+
+  let dependentDialects = [
+    "mlir::arith::ArithDialect",
+    "mlir::math::MathDialect"
+  ];
+}
+
 #endif // PINC_PASS
